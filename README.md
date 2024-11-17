@@ -128,11 +128,11 @@ This tutorial outlines the prerequisites and installation steps for Configuring 
 
 # Step 5: Test Domain Functionality
 
-## Remote Desktop for Regular Users:
+### Remote Desktop for Regular Users:
 Log into **Client-1** as `mydomain.com\JaneDoe`.
 Enable **Remote Desktop** access for Domain Users via **System Properties > Remote Desktop**.
 
-## Create Bulk Users with PowerShell:
+### Create Bulk Users with PowerShell:
 1. On **DC-1**, run the following script in PowerShell to create 1000 test users in the `_EMPLOYEES OU:`
 &nbsp;
 
@@ -153,7 +153,7 @@ Enable **Remote Desktop** access for Domain Users via **System Properties > Remo
 
 ![1](https://i.imgur.com/uQpccNe.png)
 
-## 1000 Users Created Using PowerShell
+### 1000 Users Created Using PowerShell
 ![1](https://i.imgur.com/WuOpo4m.png)
 ![2](https://i.imgur.com/sYuT8I9.png) 
 
