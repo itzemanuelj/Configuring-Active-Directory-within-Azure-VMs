@@ -18,14 +18,14 @@ This tutorial outlines the prerequisites and installation steps for Configuring 
 
 
 ## Operating Systems Used
-***
+
 - **Windows Server 2022**
 - **Windows 10 Pro** 
 
 ## List of Prerequisites
-***
+
 - **Azure Subscription and Virtual Network**
-- **Windows Server VM****
+- **Windows Server VM**
 - **Static IP and DNS Configuration**
 
 
@@ -47,7 +47,7 @@ This tutorial outlines the prerequisites and installation steps for Configuring 
 ## Step 2: Configure DC-1 (Domain Controller)
 
 ### 1. Assign a Static Private IP:
-- Go to the ****Azure portal****, open ****DC-1’s Networking settings****, and configure the private IP to be static.
+- Navigate to DC-1's Networking settings in the **Azure Portal** and set the private IP to static.
 
 ### 2. Enable ICMP (Ping) on DC-1:
 - Open a PowerShell window on DC-1 and run the following command:
@@ -62,11 +62,12 @@ This tutorial outlines the prerequisites and installation steps for Configuring 
 
 
 ### 3: Install Active Directory Domain Services:
-1. Log into DC-1 and open the ****Server Manager****.
-2. Click ****Add Roles and Features****:
-   - Choose ****Active Directory Domain Services****.
-3. After installation, click the notification to ****Promote this server to a domain controller****:
-   - Set up a new forest (in this tutorial we will name our domain controller `mydomain.com`) and restart DC-1.
+1. Log into DC-1 and open **Server Manager**.
+2. Click **Add Roles and Features**:
+   - Choose **Active Directory Domain Services**.
+3. After installation, click the notification to **Promote this server to a domain controller**:
+   - After installation, select Promote this server to a domain controller and set up a new forest .
+   - In this tutorial we will name our domain controller (`mydomain.com`).
 &nbsp;
 
 ![1](https://i.imgur.com/oWbdCJQ.png)
@@ -84,17 +85,17 @@ This tutorial outlines the prerequisites and installation steps for Configuring 
 
 
 ### Set the Client to Use DC-1 as DNS Server:
-1. Open the ****Azure portal**** and navigate to ****Client-1’s Networking settings****.
-2. Change the ****DNS server**** setting to the private IP address of ****DC-1****.
-3. Restart ****Client-1****.
+1.Navigate to Client-1's Networking settings in the **Azure portal.**.
+2. Set the **DNS server** server to the private IP address of **DC-1**.
+3. Restart **Client-1**.
 &nbsp;
 
 ![1]()
 ![2]()
 
 ### Join Client-1 to the Domain:
-1. Log into ****Client-1**** and go to ****Settings > System > About****.
-2. Under ****Rename this PC (advanced)****, click ****Change****:
+1. Log into ****Client-1**** and Navigate to **Settings > System > About**.
+2. Under **Rename this PC (advanced)**, click **Change**:
    - Select ****Domain**** and enter `mydomain.com`.
 3. Provide credentials for `mydomain.com\azureuser`.
 4. Restart ****Client-1**** to apply the changes.
@@ -104,9 +105,9 @@ This tutorial outlines the prerequisites and installation steps for Configuring 
 
 # Step 4: Create Organizational Units and Users
 
-## Log Into DC-1:
-1. Open **Active Directory Users and Computers**.
-2. Right-click your domain (e.g., `mydomain.com`) and create two Organizational Units (OUs):
+### Log into DC-1 and open Active Directory Users and Computers:
+
+1. Right-click our domain (`mydomain.com`) and create two Organizational Units (OUs):
    - **_EMPLOYEES**
    - **_ADMINS**
 &nbsp;
@@ -117,8 +118,8 @@ This tutorial outlines the prerequisites and installation steps for Configuring 
 ## Add a User:
 1. Inside **_ADMINS**, right-click and create a new user:
    - **Name**: Jane Doe
-   - **Username**: Jane_admin
-2. Add **Jane_admin** to the **Domain Admins** security group.
+   - **Username**: JaneDoe
+2. Add **JaneDoe** to the **Domain Admins** security group.
 &nbsp;
 
 ![2](https://i.imgur.com/nPx2z0b.png) 
@@ -127,14 +128,14 @@ This tutorial outlines the prerequisites and installation steps for Configuring 
 
 # Step 5: Test Domain Functionality
 
-
 ## Remote Desktop for Regular Users:
-1. Log into **Client-1** as `mydomain.com\JaneDoe`.
-2. Open **System Properties > Remote Desktop**:
-   - Allow access for **Domain Users**.
-janedoe@mydomain.com
+Log into **Client-1** as `mydomain.com\JaneDoe`.
+Enable **Remote Desktop** access for Domain Users via **System Properties > Remote Desktop**.
+
 ## Create Bulk Users with PowerShell:
-1. On **DC-1**, run the following script in PowerShell to create test users:
+1. On **DC-1**, run the following script in PowerShell to create 1000 test users in the `_EMPLOYEES OU:`
+&nbsp;
+
 
    ```powershell
    for ($i=1; $i -le 1000; $i++) {
@@ -145,7 +146,9 @@ janedoe@mydomain.com
    }
    ```
 
-2. Pick one user (e.g., `user500`) and test logging into **Client-1** using Remote Desktop.
+2. Test logging in with one of these users `(e.g., user500)` on **Client-1** via Remote Desktop.
+
+
 &nbsp;
 
 ![1](https://i.imgur.com/uQpccNe.png)
