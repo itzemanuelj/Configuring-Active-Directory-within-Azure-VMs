@@ -34,18 +34,19 @@ This tutorial outlines the prerequisites and installation steps for Configuring 
 ## Step 1: Set Up Virtual Machines in Azure
 ----
 
-1. **Create DC-1**: Deploy a Windows Server 2022 VM in Azure. If you need ----vm link
+1. **Create DC-1**: Deploy a Windows Server 2022 VM in Azure.- If you need help creating your virtual machines, please see my tutorial [here](https://github.com/itzemanuelj/Creating-a-Virtual-Machine-Using-Azure)
 2. Place it in a new Virtual Network .
-3. In this tutorial we will name this Virtual Network VM1
+3. In this tutorial we will name this Virtual Network VN1
 4. **Create Client-1**: Deploy a Windows 10 VM in the same VNET as DC-1.
 &nbsp;
 
-![1]()
-![2]()
+![1](https://i.imgur.com/vZAElND.png)
+![2](https://i.imgur.com/z4et6Mt.png)
+![2](https://i.imgur.com/l6Mpwgn.png)
 
 ## Step 2: Configure DC-1 (Domain Controller)
 ----
-#### 1. Assign a Static Private IP:
+### 1. Assign a Static Private IP:
 - Go to the ****Azure portal****, open ****DC-1’s Networking settings****, and configure the private IP to be static.
 
 ### 2. Enable ICMP (Ping) on DC-1:
@@ -54,6 +55,11 @@ This tutorial outlines the prerequisites and installation steps for Configuring 
   ```powershell
   New-NetFirewallRule -DisplayName "ICMPv4" -Protocol ICMPv4 -Direction Inbound -Action Allow
   ```
+&nbsp;
+
+![1](https://i.imgur.com/72kU3hm.png)
+![2](https://i.imgur.com/8tT2uJA.png)
+
 
 ### 3: Install Active Directory Domain Services:
 1. Log into DC-1 and open the ****Server Manager****.
@@ -61,15 +67,18 @@ This tutorial outlines the prerequisites and installation steps for Configuring 
    - Choose ****Active Directory Domain Services****.
 3. After installation, click the notification to ****Promote this server to a domain controller****:
    - Set up a new forest (in this tutorial we will name our domain controller `mydomain.com`) and restart DC-1.
-
----
-
-### 4. Log Back In:
-- Log into DC-1 as `mydomain.com\azureuser`.
 &nbsp;
 
-![1]()
-![2]()
+![1](https://i.imgur.com/mqir0sB.png)
+![2](https://i.imgur.com/J5iSDZ5.png)
+
+### 4. Log Back In:
+- Log into DC-1 
+&nbsp;
+
+![2](https://i.imgur.com/7UkNnMf.png)
+
+
 
 ## Step 3: Configure Client-1
 ----
@@ -78,8 +87,10 @@ This tutorial outlines the prerequisites and installation steps for Configuring 
 1. Open the ****Azure portal**** and navigate to ****Client-1’s Networking settings****.
 2. Change the ****DNS server**** setting to the private IP address of ****DC-1****.
 3. Restart ****Client-1****.
+&nbsp;
 
----
+![1]()
+![2]()
 
 ### Join Client-1 to the Domain:
 1. Log into ****Client-1**** and go to ****Settings > System > About****.
@@ -114,10 +125,10 @@ This tutorial outlines the prerequisites and installation steps for Configuring 
 ----
 
 ## Remote Desktop for Regular Users:
-1. Log into **Client-1** as `mydomain.com\Jane_admin`.
+1. Log into **Client-1** as `mydomain.com\JaneDoe`.
 2. Open **System Properties > Remote Desktop**:
    - Allow access for **Domain Users**.
-
+janedoe@mydomain.com
 ## Create Bulk Users with PowerShell:
 1. On **DC-1**, run the following script in PowerShell to create test users:
 
