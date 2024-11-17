@@ -101,9 +101,8 @@ This tutorial outlines the prerequisites and installation steps for Configuring 
 4. Restart **Client-1** to apply the changes.
 &nbsp;
 
-![2]()
-![2]()
-![2]()
+![2](https://i.imgur.com/tUWpFCb.png)
+
 
 
 # Step 4: Create Organizational Units and Users
