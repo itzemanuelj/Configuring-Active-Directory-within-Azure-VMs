@@ -4,14 +4,12 @@
 
 # Configuring Active Directory within Azure VMs
 
-
 ## Prerequisites and Installation
-***
+
 This tutorial outlines the prerequisites and installation steps for Configuring Active Directory within Azure VMs
 
 
 ## Environments and Technologies Used
-***
 - **Remote Desktop** 
 - **PowerShell** 
 - **Active Directory Domain Services**
