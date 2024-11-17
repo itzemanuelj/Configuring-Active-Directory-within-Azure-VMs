@@ -85,23 +85,26 @@ This tutorial outlines the prerequisites and installation steps for Configuring 
 
 
 ### Set the Client to Use DC-1 as DNS Server:
-1.Navigate to Client-1's Networking settings in the **Azure portal.**.
+1. Navigate to Client-1's Networking settings in the **Azure portal.**
 2. Set the **DNS server** server to the private IP address of **DC-1**.
 3. Restart **Client-1**.
 &nbsp;
 
-![1]()
-![2]()
+![1](https://i.imgur.com/WLpnhgc.png)
+![2](https://i.imgur.com/d7fR3z7.png)
 
 ### Join Client-1 to the Domain:
-1. Log into ****Client-1**** and Navigate to **Settings > System > About**.
+1. Log into **Client-1** and Navigate to **Settings > System > About**.
 2. Under **Rename this PC (advanced)**, click **Change**:
-   - Select ****Domain**** and enter `mydomain.com`.
-3. Provide credentials for `mydomain.com\azureuser`.
-4. Restart ****Client-1**** to apply the changes.
+   - Select **Domain** and enter `mydomain.com`.
+3. Provide credentials for `mydomain.com\JaneDoe`.
+4. Restart **Client-1** to apply the changes.
 &nbsp;
 
 ![2]()
+![2]()
+![2]()
+
 
 # Step 4: Create Organizational Units and Users
 
