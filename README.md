@@ -2,7 +2,7 @@
 <img src=https://i.imgur.com/3iwtTkN.jpeg" height="40%" width="60%" alt="Logo"/>
 </p>
 
-# Configuring Active Directory within Azure VMs**
+# Configuring Active Directory within Azure VMs
 
 
 ## Prerequisites and Installation
@@ -30,9 +30,9 @@ This tutorial outlines the prerequisites and installation steps for Configuring 
 
 
 ## Installation Steps
-***
+
 ## Step 1: Set Up Virtual Machines in Azure
-----
+
 
 1. **Create DC-1**: Deploy a Windows Server 2022 VM in Azure.- If you need help creating your virtual machines, please see my tutorial [here](https://github.com/itzemanuelj/Creating-a-Virtual-Machine-Using-Azure)
 2. Place it in a new Virtual Network .
@@ -45,7 +45,7 @@ This tutorial outlines the prerequisites and installation steps for Configuring 
 ![2](https://i.imgur.com/l6Mpwgn.png)
 
 ## Step 2: Configure DC-1 (Domain Controller)
-----
+
 ### 1. Assign a Static Private IP:
 - Go to the ****Azure portal****, open ****DC-1’s Networking settings****, and configure the private IP to be static.
 
@@ -69,8 +69,8 @@ This tutorial outlines the prerequisites and installation steps for Configuring 
    - Set up a new forest (in this tutorial we will name our domain controller `mydomain.com`) and restart DC-1.
 &nbsp;
 
-![1](https://i.imgur.com/mqir0sB.png)
-![2](https://i.imgur.com/J5iSDZ5.png)
+![1](https://i.imgur.com/oWbdCJQ.png)
+![2](https://i.imgur.com/gDFHyJR.png)
 
 ### 4. Log Back In:
 - Log into DC-1 
@@ -81,7 +81,7 @@ This tutorial outlines the prerequisites and installation steps for Configuring 
 
 
 ## Step 3: Configure Client-1
-----
+
 
 ### Set the Client to Use DC-1 as DNS Server:
 1. Open the ****Azure portal**** and navigate to ****Client-1’s Networking settings****.
@@ -100,16 +100,19 @@ This tutorial outlines the prerequisites and installation steps for Configuring 
 4. Restart ****Client-1**** to apply the changes.
 &nbsp;
 
-![1]()
 ![2]()
 
 # Step 4: Create Organizational Units and Users
----
+
 ## Log Into DC-1:
 1. Open **Active Directory Users and Computers**.
 2. Right-click your domain (e.g., `mydomain.com`) and create two Organizational Units (OUs):
    - **_EMPLOYEES**
    - **_ADMINS**
+&nbsp;
+
+   ![1](https://i.imgur.com/x8mi7qL.png)
+
 
 ## Add a User:
 1. Inside **_ADMINS**, right-click and create a new user:
@@ -118,11 +121,12 @@ This tutorial outlines the prerequisites and installation steps for Configuring 
 2. Add **Jane_admin** to the **Domain Admins** security group.
 &nbsp;
 
-![1]()
-![2]() 
+![2](https://i.imgur.com/nPx2z0b.png) 
+![1](https://i.imgur.com/lPcn1M1.png)
+
 
 # Step 5: Test Domain Functionality
-----
+
 
 ## Remote Desktop for Regular Users:
 1. Log into **Client-1** as `mydomain.com\JaneDoe`.
@@ -144,8 +148,11 @@ janedoe@mydomain.com
 2. Pick one user (e.g., `user500`) and test logging into **Client-1** using Remote Desktop.
 &nbsp;
 
-![1]()
-![2]() 
+![1](https://i.imgur.com/uQpccNe.png)
+
+## 1000 Users Created Using PowerShell
+![1](https://i.imgur.com/WuOpo4m.png)
+![2](https://i.imgur.com/sYuT8I9.png) 
 
 # Conclusion
 
