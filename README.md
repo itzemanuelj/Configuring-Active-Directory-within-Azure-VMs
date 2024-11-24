@@ -32,7 +32,7 @@ This tutorial outlines the prerequisites and installation steps for Configuring 
 ## Step 1: Set Up Virtual Machines in Azure
 
 
-1. **Create DC-1**: Deploy a Windows Server 2022 VM in Azure.- If you need help creating your virtual machines, please see my tutorial [here](https://github.com/itzemanuelj/Creating-a-Virtual-Machine-Using-Azure).
+1. **Create DC-1**: Deploy a Windows Server 2022 VM in Azure. If you need help creating your virtual machines, please see my tutorial [here](https://github.com/itzemanuelj/Creating-a-Virtual-Machine-Using-Azure).
 2. Place it in a new Virtual Network .
 3. In this tutorial we will name this Virtual Network VN1.
 4. **Create Client-1**: Deploy a Windows 10 VM in the same VNET as DC-1.
